@@ -1,11 +1,11 @@
-//piloteI2SBT:
+//pilotePWM:
 //Historique: 
 // 2023-05-11 Samuel Hamelin
 
 //INCLUSIONS
 #include "main.h"
-#include "piloteI2SBT.h"
-#include "BluetoothA2DPSink.h"
+#include "piloteIOAudioSelect.h"
+#include <pwmWrite.h>
 
 //Definitions privees
 //pas de d�finitions privees
@@ -14,12 +14,7 @@
 //pas de fonction privees
 
 //Definitions de variables privees:
-i2s_pin_config_t my_pin_config = {
-        .bck_io_num = 15,
-        .ws_io_num = 14,
-        .data_out_num = 13,
-        .data_in_num = I2S_PIN_NO_CHANGE
-  }
+Pwm pwm = Pwm();
 
 //Definitions de fonctions privees:
 //pas de fonctions privees
@@ -28,11 +23,21 @@ i2s_pin_config_t my_pin_config = {
 // pas de variables publiques
 
 //Definitions de fonctions publiques:
-
-void piloteI2SBT_initialise(*BluetoothA2DPSink a2dp_sink)
+void pilotePWM_metLaSortieA(unsigned char Pin, unsigned char Valeur)
 {
-  a2dp_sink.set_pin_config(my_pin_config);
+  pwm.write(Pin, Valeur);
 }
+
+void pilotePWM_initialise(void)
+{
+  pinMode(PILOTEPWMLEDG, OUTPUT);
+  pinMode(PILOTEPWMLEDR, OUTPUT);
+  pinMode(PILOTEPWMLEDW, OUTPUT);
+  pinMode(PILOTEPWMLEDB, OUTPUT);
+}
+
+
+
 
 
 
