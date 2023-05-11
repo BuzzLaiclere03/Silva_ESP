@@ -1,7 +1,7 @@
-#ifndef INTERFACEB1_H
-#define INTERFACEB1_H
+#ifndef INTERFACERPI_H
+#define INTERFACERPI_H
 
-//MODULE: interfaceB1
+//MODULE: interfaceRPi
 //DESCRIPTION: pour s'interfacer avec le bouton B1. 
 //L'etat du bouton est lu periodiquement et les decisions rendues par rapport a
 //son etat se base sur un nombre minimum de lecture afin de reduire les risques
@@ -17,10 +17,6 @@
 //DEFINITIONS REQUISES PAR LE MODULE:
 //Dependances materielles
 //(copiez et adaptez ce qui suit dans "main.h")
-//#define INTERFACEB1_VALEUR_LUE_SI_APPUYE  1   
-//#define INTERFACEB1_VALEUR_LUE_SI_RELACHE 0
-//#define INTERFACEB1_FREQUENCE_DES_LECTURES_EN_HZ  100
-//#define INTERFACEB1_NOMBRE_MINIMUM_DE_LECTURES_PAR_DECISION 10
 
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")
@@ -28,16 +24,33 @@
 
 //INFORMATION PUBLIQUE:
 //Definitions publiques:
-#define INTERFACEB1_RELACHE  0
-#define INTERFACEB1_APPUYE  1
-#define INTERFACEB1_INCONNU 2
+struct BITS{
+    unsigned char Source : 1;
+    unsigned char Disconnect : 1;
+    unsigned char Next : 1;
+    unsigned char State : 1;
+    unsigned char Back : 1;
+    unsigned char Unused : 3;
+  };
+
+union BtActions 
+{
+  unsigned char All;
+  struct BITS bits; 
+};
 
 typedef struct
 {
-  unsigned char etatDuModule;  
-  unsigned char information;
-  unsigned char etatDuBouton;
-} INTERFACEB1;
+  union BtActions btactions;  
+  unsigned char Led_B;
+  unsigned char Led_W;
+  unsigned char Led_R;
+  unsigned char Led_G;
+  unsigned char Volume;
+  unsigned char Bass;
+  unsigned char Mid;
+  unsigned char Treble;
+} INTERFACERPI;
 
 //Fonctions publiques:
 void interfaceB1_initialise(void);

@@ -1,17 +1,14 @@
-#ifndef INTERFACET1_H
-#define INTERFACET1_H
+#ifndef INTERFACELEDS_H
+#define INTERFACELEDS_H
 
-//MODULE: interfaceT1
-//DESCRIPTION: pour s'interfacer avec le temoin lumineux T1. 
+//MODULE: interfaceLeds
+//DESCRIPTION: pour s'interfacer avec la strip de leds. 
 
 //HISTORIQUE:
 // 2018-09-08, Yves Roy, creation
 
 //DEFINITIONS REQUISES PAR LE MODULE:
 //Dependances materielles
-//(copiez et adaptez ce qui suit dans "main.h")
-//#define INTERFACET1_VALEUR_POUR_ALLUMER  1   
-//#define INTERFACET1_VALEUR_POUR_ETEINDRE 0
 
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")
@@ -22,9 +19,8 @@
 //pas de definitions publiques
 
 //Fonctions publiques:
-void interfaceT1_allume(void);
-void interfaceT1_eteint(void);
-void interfaceT1_initialise(void);
+void interfaceLeds_changeetat(unsigned char Pin, unsigned char Valeur);
+void interfaceLeds_initialise(void);
 
 //Variables publiques:
 //pas de variables publiques

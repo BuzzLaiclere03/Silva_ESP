@@ -1,11 +1,11 @@
-//interfaceT1:
+//interfaceLeds:
 //Historique: 
 // 2018-09-08, Yves Roy, creation
 
 //INCLUSIONS
 #include "main.h"
-#include "piloteIOT1.h"
-#include "interfaceT1.h"
+#include "pilotePWM.h"
+#include "interfaceLeds.h"
 
 //Definitions privees
 //pas de definitions privees
@@ -23,19 +23,15 @@
 //pas de variables publiques
 
 //Definitions de fonctions publiques:
-void interfaceT1_allume(void)
+void interfaceLeds_changeetat(unsigned char Pin, unsigned char Valeur)
 {
-  piloteIOT1_metLaSortieA(INTERFACET1_VALEUR_POUR_ALLUMER);
+  pilotePWM_metLaSortieA(Pin, Valeur);
 }
 
-void interfaceT1_eteint(void)
+void interfaceLeds_initialise(void)
 {
-  piloteIOT1_metLaSortieA(INTERFACET1_VALEUR_POUR_ETEINDRE);
+  pilotePWM_metLaSortieA(PILOTEPWMLEDG, 0);
+  pilotePWM_metLaSortieA(PILOTEPWMLEDR, 0);
+  pilotePWM_metLaSortieA(PILOTEPWMLEDW, 0);
+  pilotePWM_metLaSortieA(PILOTEPWMLEDB, 0);
 }
-
-void interfaceT1_initialise(void)
-{
-  piloteIOT1_metLaSortieA(INTERFACET1_VALEUR_POUR_ETEINDRE);
-}
-
-
