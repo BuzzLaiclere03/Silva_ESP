@@ -4,7 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/ESP32-A2DP/src"
+                "${workspaceFolder}/ESP32-A2DP/src",
+                "${workspaceFolder}/inc"
             ],
             "defines": [
                 "_DEBUG",

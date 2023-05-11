@@ -5,6 +5,7 @@
 //INCLUSIONS
 #include "main.h"
 #include "piloteI2S.h"
+#include "BluetoothA2DPSink.h"
 
 //Definitions privees
 //pas de d�finitions privees
@@ -34,6 +35,7 @@ void piloteIOB1_initialise(void)
         .ws_io_num = 14,
         .data_out_num = 13,
         .data_in_num = I2S_PIN_NO_CHANGE
+  }
 }
 
 
