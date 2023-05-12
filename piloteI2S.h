@@ -19,8 +19,8 @@
 //pas de definitions publiques
 
 //Fonctions publiques:
-void piloteI2SBT_initialise(*BluetoothA2DPSink a2dp_sink);
+void piloteI2SBT_initialise(void);
 
 //Variables publiques:
-
+extern BluetoothA2DPSink a2dp_sink;
 #endif

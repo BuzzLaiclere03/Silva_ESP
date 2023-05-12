@@ -39,7 +39,7 @@ unsigned char piloteI2CDGPT_begin(unsigned char ucAdr)
 
 unsigned char piloteI2CDGPT_write(unsigned char ucData)
 {
-  I2CDGPT.write(byte(0x00));
+  I2CDGPT.write(ucData);
 }
 
 unsigned char piloteI2CDGPT_end(void)

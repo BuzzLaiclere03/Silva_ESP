@@ -10,7 +10,7 @@
 //Dependances materielle
 //#define PILOTEI2CRPI_SDA        45
 //#define PILOTEI2CRPI_SCL        46
-//#define NBBYTEARECEVOIR 10
+//#define PILOTEI2CRPI_NBBYTEARECEVOIR 10
 
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")

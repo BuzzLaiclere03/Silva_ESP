@@ -25,13 +25,14 @@ i2s_pin_config_t my_pin_config = {
 //pas de fonctions privees
 
 //Definitions de variables publiques:
-// pas de variables publiques
+BluetoothA2DPSink a2dp_sink;
 
 //Definitions de fonctions publiques:
 
-void piloteI2SBT_initialise(*BluetoothA2DPSink a2dp_sink)
+void piloteI2SBT_initialise(void)
 {
   a2dp_sink.set_pin_config(my_pin_config);
+  a2dp_sink.start("Silva");
 }
 
 

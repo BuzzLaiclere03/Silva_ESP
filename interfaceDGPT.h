@@ -1,7 +1,7 @@
-#ifndef INTERFACERPI_H
-#define INTERFACERPI_H
+#ifndef INTERFACEDGPT_H
+#define INTERFACEDGPT_H
 
-//MODULE: interfaceRPi
+//MODULE: interfaceDGPT
 //DESCRIPTION: pour s'interfacer avec le bouton B1. 
 //L'etat du bouton est lu periodiquement et les decisions rendues par rapport a
 //son etat se base sur un nombre minimum de lecture afin de reduire les risques
@@ -20,44 +20,36 @@
 
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")
-//#define INTERFACERPI_PHASE 0
+//#define INTERFACEDGPT_PHASE 0
+//#define INTERFACEDGPT_ADRBASS 0x5800
+//#define INTERFACEDGPT_ADRMID 0x5880
+//#define INTERFACEDGPT_ADRTREBLE 0x5C00
+//#define INTERFACEDGPT_ADRVOLUME 0x5C80
 
 //INFORMATION PUBLIQUE:
 //Definitions publiques:
-struct BITS{
-    unsigned char Source : 1;
-    unsigned char Disconnect : 1;
-    unsigned char Next : 1;
-    unsigned char State : 1;
-    unsigned char Back : 1;
-    unsigned char Unused : 3;
+struct BYTES{
+    unsigned char Instruction : 8;
+    unsigned char Adr : 8;
   };
 
-union BtActions 
+union Setup 
 {
   unsigned char All;
-  struct BITS bits; 
+  struct BYTES bytes; 
 };
 
 typedef struct
 {
-  union BtActions btactions;  
-  unsigned char Led_B;
-  unsigned char Led_W;
-  unsigned char Led_R;
-  unsigned char Led_G;
-  unsigned char Volume;
-  unsigned char Bass;
-  unsigned char Mid;
-  unsigned char Treble;
+  union Setup setup;  
   unsigned char etatDuModule;
   unsigned char information;
-} INTERFACERPI;
+} INTERFACEDGPT;
 
 //Fonctions publiques:
-void interfaceB1_initialise(void);
+void interfaceDGPT_initialise(void);
 
 //Variables publiques:
-extern INTERFACEB1 interfaceB1;
+extern INTERFACEDGPT interfaceDGPT;
 
 #endif

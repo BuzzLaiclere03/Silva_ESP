@@ -32,10 +32,10 @@ void piloteI2CRPi_initialise(void)
   I2CRPi.begin();
 }
 
-void piloteI2CRPi_read(*unsigned char[NBBYTEARECEVOIR] ucData)
+void piloteI2CRPi_read(*unsigned char[PILOTEI2CRPI_NBBYTEARECEVOIR] ucData)
 {
   I2CRPi.requestFrom();
-  for (int i = 0; i < NBBYTEARECEVOIR; i++)
+  for (int i = 0; i < PILOTEI2CRPI_NBBYTEARECEVOIR; i++)
   {
     if(I2CRPi.available())
     {

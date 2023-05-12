@@ -39,7 +39,7 @@ void interfaceRPi_gere(void) {
 INTERFACERPI interfaceRPi;
 
 //Definitions de fonctions publiques:
-void interfaceB1_initialise(void) {
+void interfaceRPi_initialise(void) {
   interfaceRPi.etatDuModule = MODULE_PAS_EN_FONCTION;
   interfaceRPi.information = INFORMATION_TRAITEE;
   interfaceRPi.btaction.All = 0;
