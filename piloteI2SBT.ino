@@ -32,7 +32,8 @@ BluetoothA2DPSink a2dp_sink;
 void piloteI2SBT_initialise(void)
 {
   a2dp_sink.set_pin_config(my_pin_config);
-  a2dp_sink.start("Silva");
+  a2dp_sink.set_task_core(2);
+  a2dp_sink.start("Silva", 0);
 }
 
 

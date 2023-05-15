@@ -12,17 +12,21 @@
 
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")
-//pas de d�pendances logicielles
+//#define INTERFACELEDS_PHASE 0
 
 //INFORMATION PUBLIQUE:
 //Definitions publiques:
-//pas de definitions publiques
+typedef struct
+{
+  unsigned char etatDuModule;
+  unsigned char information;
+} INTERFACELEDS;
 
 //Fonctions publiques:
 void interfaceLeds_changeetat(unsigned char Pin, unsigned char Valeur);
 void interfaceLeds_initialise(void);
 
 //Variables publiques:
-//pas de variables publiques
+extern INTERFACELEDS interfaceLeds;
 
 #endif

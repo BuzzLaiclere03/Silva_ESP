@@ -20,18 +20,24 @@
 //pas de fonctions privees
 
 //Definitions de variables publiques:
-//pas de variables publiques
+INTERFACELEDS interfaceLeds;
 
 //Definitions de fonctions publiques:
-void interfaceLeds_changeetat(unsigned char Pin, unsigned char Valeur)
+void interfaceLeds_changeetat(*INTERFACERPI interfaceRPi)
 {
-  pilotePWM_metLaSortieA(Pin, Valeur);
+  pilotePWM_metLaSortieA(PILOTEPWMLEDG, interfaceRPi.LED_G);
+  pilotePWM_metLaSortieA(PILOTEPWMLEDR, interfaceRPi.LED_R);
+  pilotePWM_metLaSortieA(PILOTEPWMLEDW, interfaceRPi.LED_W);
+  pilotePWM_metLaSortieA(PILOTEPWMLEDB, interfaceRPi.LED_B);
 }
 
 void interfaceLeds_initialise(void)
 {
+  interfaceLeds.etatDuModule = MODULE_PAS_EN_FONCTION;
+  interfaceLeds.information = INFORMATION_TRAITEE;
   pilotePWM_metLaSortieA(PILOTEPWMLEDG, 0);
   pilotePWM_metLaSortieA(PILOTEPWMLEDR, 0);
   pilotePWM_metLaSortieA(PILOTEPWMLEDW, 0);
   pilotePWM_metLaSortieA(PILOTEPWMLEDB, 0);
+  serviceBaseDeTemps_execute[INTERFACELEDS_PHASE] = interfaceLeds_gere;
 }

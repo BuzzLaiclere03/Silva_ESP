@@ -12,18 +12,23 @@
 
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")
+//#define INTERFACESOURCE_PHASE 0
 //#define INTERFACESOURCE_SELECTRPI 0
 //#define INTERFACESOURCE_SELECTESP 1
 
 //INFORMATION PUBLIQUE:
 //Definitions publiques:
-//pas de definitions publiques
+typedef struct
+{
+  unsigned char etatDuModule;
+  unsigned char information;
+} INTERFACEHP;
 
 //Fonctions publiques:
-void interfaceLeds_changeetat(unsigned char Pin, unsigned char Valeur);
-void interfaceLeds_initialise(void);
+void interfaceSource_gere(*INTERFACERPI);
+void interfaceSource_initialise(void);
 
 //Variables publiques:
-//pas de variables publiques
+extern INTERFACEHP interfaceHP;
 
 #endif
