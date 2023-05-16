@@ -5,7 +5,7 @@
 //INCLUSIONS
 #include "main.h"
 #include "piloteI2CDGPT.h"
-#include <SoftwareWire.h>
+#include <Wire.h>
 
 //Definitions privees
 //pas de definitions privees
@@ -14,13 +14,12 @@
 //pas de fonctions privees
 
 //Definitions de variables privees:
-//pas de variables privees
+TwoWire I2CDGPT = TwoWire(0);
 
 //Definitions de fonctions privees:
 //pas de fonctions privees
 
 //Definitions de variables publiques:
-SoftwareWire I2CDGPT(PILOTEI2CDGPT_SDA, PILOTEI2CDGPT_SCL);
 
 //Definitions de fonctions publiques:
 // pas de definitions publiques
@@ -29,20 +28,30 @@ SoftwareWire I2CDGPT(PILOTEI2CDGPT_SDA, PILOTEI2CDGPT_SCL);
 
 void piloteI2CDGPT_initialise(void)
 {
-  I2CDGPT.begin();
+  I2CDGPT.begin(PILOTEI2CDGPT_SDA, PILOTEI2CDGPT_SCL, 100000);
 }
 
-unsigned char piloteI2CDGPT_begin(unsigned char ucAdr)
+void piloteI2CDGPT_beginW(unsigned char ucAdr)
 {
   I2CDGPT.beginTransmission(ucAdr);
 }
 
-unsigned char piloteI2CDGPT_write(unsigned char ucData)
+void piloteI2CDGPT_beginR(unsigned char ucAdr, unsigned char ucNbBytes)
+{
+  I2CDGPT.requestFrom(ucAdr, ucNbBytes);
+}
+
+void piloteI2CDGPT_write(unsigned char ucData)
 {
   I2CDGPT.write(ucData);
 }
 
-unsigned char piloteI2CDGPT_end(void)
+unsigned char piloteI2CDGPT_read()
+{
+  return I2CDGPT.read();
+}
+
+void piloteI2CDGPT_end(void)
 {
   I2CDGPT.endTransmission();
 }

@@ -23,7 +23,7 @@ typedef struct
 } INTERFACELEDS;
 
 //Fonctions publiques:
-void interfaceLeds_changeetat(unsigned char Pin, unsigned char Valeur);
+void interfaceLeds_changeetat(void);
 void interfaceLeds_initialise(void);
 
 //Variables publiques:

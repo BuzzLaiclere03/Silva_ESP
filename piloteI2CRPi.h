@@ -8,8 +8,8 @@
 
 //DEFINITIONS REQUISES PAR LE MODULE:
 //Dependances materielle
-//#define PILOTEI2CRPI_SDA        45
-//#define PILOTEI2CRPI_SCL        46
+//#define PILOTEI2CRPI_SDA 35
+//#define PILOTEI2CRPI_SCL 36
 //#define PILOTEI2CRPI_NBBYTEARECEVOIR 10
 
 //Dependances logicielles
@@ -22,7 +22,7 @@
 //Fonctions publiques:
 void piloteI2CRPi_initialise(void);
 
-void piloteI2CRPi_read(*unsigned char[]);
+void piloteI2CRPi_read(unsigned char *);
 
 //Variables publiques:
 //pas de variables publiques

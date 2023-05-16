@@ -6,6 +6,7 @@
 #include "main.h"
 #include "pilotePWM.h"
 #include "interfaceLeds.h"
+#include "interfaceRPi.h"
 
 //Definitions privees
 //pas de definitions privees
@@ -23,21 +24,21 @@
 INTERFACELEDS interfaceLeds;
 
 //Definitions de fonctions publiques:
-void interfaceLeds_changeetat(*INTERFACERPI interfaceRPi)
+void interfaceLeds_changeetat(void)
 {
-  pilotePWM_metLaSortieA(PILOTEPWMLEDG, interfaceRPi.LED_G);
-  pilotePWM_metLaSortieA(PILOTEPWMLEDR, interfaceRPi.LED_R);
-  pilotePWM_metLaSortieA(PILOTEPWMLEDW, interfaceRPi.LED_W);
-  pilotePWM_metLaSortieA(PILOTEPWMLEDB, interfaceRPi.LED_B);
+  pilotePWM_metLaSortieA(PILOTEPWM_LEDG, interfaceRPi.Led_G);
+  pilotePWM_metLaSortieA(PILOTEPWM_LEDR, interfaceRPi.Led_R);
+  pilotePWM_metLaSortieA(PILOTEPWM_LEDW, interfaceRPi.Led_W);
+  pilotePWM_metLaSortieA(PILOTEPWM_LEDB, interfaceRPi.Led_B);
 }
 
 void interfaceLeds_initialise(void)
 {
   interfaceLeds.etatDuModule = MODULE_PAS_EN_FONCTION;
   interfaceLeds.information = INFORMATION_TRAITEE;
-  pilotePWM_metLaSortieA(PILOTEPWMLEDG, 0);
-  pilotePWM_metLaSortieA(PILOTEPWMLEDR, 0);
-  pilotePWM_metLaSortieA(PILOTEPWMLEDW, 0);
-  pilotePWM_metLaSortieA(PILOTEPWMLEDB, 0);
-  serviceBaseDeTemps_execute[INTERFACELEDS_PHASE] = interfaceLeds_gere;
+  pilotePWM_metLaSortieA(PILOTEPWM_LEDG, 0);
+  pilotePWM_metLaSortieA(PILOTEPWM_LEDR, 0);
+  pilotePWM_metLaSortieA(PILOTEPWM_LEDW, 0);
+  pilotePWM_metLaSortieA(PILOTEPWM_LEDB, 0);
+  //serviceBaseDeTemps_execute[INTERFACELEDS_PHASE] = interfaceLeds_gere;
 }

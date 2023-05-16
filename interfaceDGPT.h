@@ -23,8 +23,8 @@
 //#define INTERFACEDGPT_PHASE 0
 //#define INTERFACEDGPT_ADRBASS 0x5800
 //#define INTERFACEDGPT_ADRMID 0x5880
-//#define INTERFACEDGPT_ADRTREBLE 0x5C00
-//#define INTERFACEDGPT_ADRVOLUME 0x5C80
+//#define INTERFACEDGPT_ADRTREBLE 0x5A00
+//#define INTERFACEDGPT_ADRVOLUME 0x5A80
 
 //INFORMATION PUBLIQUE:
 //Definitions publiques:
@@ -35,7 +35,7 @@ struct BYTES{
 
 union Setup 
 {
-  unsigned char All;
+  unsigned int All;
   struct BYTES bytes; 
 };
 
@@ -48,6 +48,8 @@ typedef struct
 
 //Fonctions publiques:
 void interfaceDGPT_initialise(void);
+void interfaceDGPT_gere(void);
+unsigned char interfaceDGPT_read(unsigned int Adr, unsigned char NbBytes);
 
 //Variables publiques:
 extern INTERFACEDGPT interfaceDGPT;

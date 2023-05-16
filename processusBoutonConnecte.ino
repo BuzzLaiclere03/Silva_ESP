@@ -1,13 +1,13 @@
 //processusBoutonConnecte:
 //Historique: 
 // 2018-09-08, Yves Roy, creation
-
+/*
 //INCLUSIONS
 #include "main.h"
 #include "xserviceBaseDeTemps.h"
-#include "interfaceB1.h"
+//#include "interfaceB1.h"
 //#include "interfaceS0000.h"
-#include "serviceProtocole637.h"
+//#include "serviceProtocole637.h"
 #include "processusBoutonConnecte.h"
 
 //Definitions privees
@@ -63,3 +63,4 @@ void processusBoutonConnecte_initialise(void)
   serviceBaseDeTemps_execute[PROCESSUSBOUTONCONNECTE_PHASE] =
       processusBoutonConnecte_gere;
 }
+*/

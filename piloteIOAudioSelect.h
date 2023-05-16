@@ -9,7 +9,7 @@
 //DEFINITIONS REQUISES PAR LE MODULE:
 //Dependances materielles
 //(copiez et adaptez ce qui suit dans "main.h")
-//#define PILOTEIOAUDIOSELECT_SORTIE        16
+//#define PILOTEIOAUDIOSELECT_SORTIE 16
 
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")

@@ -1,11 +1,11 @@
 //processusClignotant:
 //Historique: 
 // 2018-09-24, Yves Roy, creation
-
+/*
 //INCLUSIONS
 #include "main.h"
 #include "xserviceBaseDeTemps.h"
-#include "interfaceT1.h"
+//#include "interfaceT1.h"
 #include "processusClignotant.h"
 
 //Definitions privees
@@ -51,3 +51,4 @@ void processusClignotant_initialise(void)
   serviceBaseDeTemps_execute[PROCESSUSCLIGNOTANT_PHASE] =
       processusClignotant_gere;
 }
+*/

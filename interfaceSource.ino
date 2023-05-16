@@ -24,13 +24,15 @@
 //pas de variables publiques
 
 //Definitions de fonctions publiques:
-void interfaceSource_gere(*INTERFACERPI interfaceRPi) {
+void interfaceSource_gere(void) {
   piloteIOAudioSelect_metLaSortieA(interfaceRPi.btactions.bits.Source);
 }
+
+INTERFACESOURCE interfaceSource;
 
 void interfaceSource_initialise(void) {
   interfaceSource.etatDuModule = MODULE_PAS_EN_FONCTION;
   interfaceSource.information = INFORMATION_TRAITEE;
   piloteIOAudioSelect_metLaSortieA(INTERFACESOURCE_SELECTRPI);
-  serviceBaseDeTemps_execute[INTERFACESOURCE_PHASE] = interfaceSource_gere;
+  //serviceBaseDeTemps_execute[INTERFACESOURCE_PHASE] = interfaceSource_gere;
 }

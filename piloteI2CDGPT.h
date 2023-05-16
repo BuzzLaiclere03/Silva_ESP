@@ -8,8 +8,8 @@
 
 //DEFINITIONS REQUISES PAR LE MODULE:
 //Dependances materielle
-//#define PILOTEI2CDGPT_SDA        45
-//#define PILOTEI2CDGPT_SCL        46
+//#define PILOTEI2CDGPT_SDA 45
+//#define PILOTEI2CDGPT_SCL 46
 
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")
@@ -20,9 +20,9 @@
 
 //Fonctions publiques:
 void piloteI2CDGPT_initialise(void);
-unsigned char piloteI2CDGPT_begin(unsigned char ucAdr);
-unsigned char piloteI2CDGPT_write(unsigned char ucData);
-unsigned char piloteI2CDGPT_end(void);
+void piloteI2CDGPT_begin(unsigned char ucAdr);
+void piloteI2CDGPT_write(unsigned char ucData);
+void piloteI2CDGPT_end(void);
 
 //Variables publiques:
 //pas de variables publiques

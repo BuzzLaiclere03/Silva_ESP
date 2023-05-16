@@ -5,7 +5,7 @@
 //INCLUSIONS
 #include "main.h"
 #include "piloteI2CRPi.h"
-#include <SoftwareWire.h>
+#include <Wire.h>
 
 //Definitions privees
 //pas de definitions privees
@@ -20,7 +20,6 @@
 //pas de fonctions privees
 
 //Definitions de variables publiques:
-SoftwareWire I2CRPi(piloteI2CRPi_SDA, piloteI2CRPi_SCL);
 
 //Definitions de fonctions publiques:
 // pas de definitions publiques
@@ -29,19 +28,19 @@ SoftwareWire I2CRPi(piloteI2CRPi_SDA, piloteI2CRPi_SCL);
 
 void piloteI2CRPi_initialise(void)
 {
-  I2CRPi.begin();
+  //Wire.begin();
 }
 
-void piloteI2CRPi_read(*unsigned char[PILOTEI2CRPI_NBBYTEARECEVOIR] ucData)
+void piloteI2CRPi_read(unsigned char *ucData)
 {
-  I2CRPi.requestFrom();
+  /*Wire.requestFrom(0x69, PILOTEI2CRPI_NBBYTEARECEVOIR, 1);
   for (int i = 0; i < PILOTEI2CRPI_NBBYTEARECEVOIR; i++)
   {
-    if(I2CRPi.available())
+    if(Wire.available())
     {
-      ucData[i] = I2CRPi.read(); // receive a byte as character
+      ucData[i] = (unsigned char) (Wire.read()); // receive a byte as character
     }
-  }
+  }*/
 }
 
 

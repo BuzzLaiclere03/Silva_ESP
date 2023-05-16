@@ -5,18 +5,19 @@
 //INCLUSIONS
 #include "main.h"
 #include "piloteI2CRPi.h"
+#include "interfaceRPi.h"
 
 //Definitions privees
 
 //Declarations de fonctions privees:
-void interfaceRPi_gere(void);
+//void interfaceRPi_gere(void);
 
 //Definitions de variables privees:
 
 //Definitions de fonctions privees:
 void interfaceRPi_gere(void) {
-  unsigned char[10] DataRecue;
-  piloteI2CRPi_read(&DataRecue);
+  unsigned char DataRecue[PILOTEI2CRPI_NBBYTEARECEVOIR] = {0};
+  piloteI2CRPi_read(DataRecue);
 
   unsigned char CheckSum = 0;
   for (int i = 0; i < 9; i++) {
@@ -42,7 +43,7 @@ INTERFACERPI interfaceRPi;
 void interfaceRPi_initialise(void) {
   interfaceRPi.etatDuModule = MODULE_PAS_EN_FONCTION;
   interfaceRPi.information = INFORMATION_TRAITEE;
-  interfaceRPi.btaction.All = 0;
+  interfaceRPi.btactions.All = 0;
   interfaceRPi.Led_B = 0;
   interfaceRPi.Led_W = 0;
   interfaceRPi.Led_R = 0;
@@ -51,5 +52,5 @@ void interfaceRPi_initialise(void) {
   interfaceRPi.Bass = 0;
   interfaceRPi.Mid = 0;
   interfaceRPi.Treble = 0;
-  serviceBaseDeTemps_execute[INTERFACERPi_PHASE] = interfaceRPi_gere;
+  //serviceBaseDeTemps_execute[INTERFACERPi_PHASE] = interfaceRPi_gere;
 }

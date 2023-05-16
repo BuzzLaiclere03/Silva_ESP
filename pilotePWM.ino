@@ -30,10 +30,10 @@ void pilotePWM_metLaSortieA(unsigned char Pin, unsigned char Valeur)
 
 void pilotePWM_initialise(void)
 {
-  pinMode(PILOTEPWMLEDG, OUTPUT);
-  pinMode(PILOTEPWMLEDR, OUTPUT);
-  pinMode(PILOTEPWMLEDW, OUTPUT);
-  pinMode(PILOTEPWMLEDB, OUTPUT);
+  pinMode(PILOTEPWM_LEDG, OUTPUT);
+  pinMode(PILOTEPWM_LEDR, OUTPUT);
+  pinMode(PILOTEPWM_LEDW, OUTPUT);
+  pinMode(PILOTEPWM_LEDB, OUTPUT);
 }
 
 

@@ -9,10 +9,10 @@
 //DEFINITIONS REQUISES PAR LE MODULE:
 //Dependances materielles
 //(copiez et adaptez ce qui suit dans "main.h")
-//#define PILOTEPWM_LEDG        16
-//#define PILOTEPWM_LEDR        16
-//#define PILOTEPWM_LEDW        16
-//#define PILOTEPWM_LEDB        16
+//#define PILOTEPWM_LEDG 5
+//#define PILOTEPWM_LEDR 6
+//#define PILOTEPWM_LEDW 7
+//#define PILOTEPWM_LEDB 8
 
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")

@@ -22,13 +22,13 @@ typedef struct
 {
   unsigned char etatDuModule;
   unsigned char information;
-} INTERFACEHP;
+} INTERFACESOURCE;
 
 //Fonctions publiques:
-void interfaceSource_gere(*INTERFACERPI);
+void interfaceSource_gere(void);
 void interfaceSource_initialise(void);
 
 //Variables publiques:
-extern INTERFACEHP interfaceHP;
+extern INTERFACESOURCE interfaceSource;
 
 #endif
