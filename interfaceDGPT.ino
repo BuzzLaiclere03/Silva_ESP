@@ -17,14 +17,14 @@
 //Definitions de fonctions privees:
 unsigned char interfaceDGPT_read(unsigned int Adr, unsigned char NbBytes) {
   interfaceDGPT.setup.All = Adr;
-  piloteI2CDGPT_beginR(interfaceDGPT.setup.bytes.Adr >> 1, NbBytes);
+  piloteI2CDGPT_beginR(interfaceDGPT.setup.bytes.Adr, NbBytes);
   unsigned char Recu = piloteI2CDGPT_read();
   return Recu;
 }
 
 void interfaceDGPT_write(unsigned int Adr, unsigned char Valeur) {
   interfaceDGPT.setup.All = Adr;
-  piloteI2CDGPT_beginW(interfaceDGPT.setup.bytes.Adr >> 1);
+  piloteI2CDGPT_beginW(interfaceDGPT.setup.bytes.Adr);
   piloteI2CDGPT_write(interfaceDGPT.setup.bytes.Instruction);
   piloteI2CDGPT_write(Valeur);
   piloteI2CDGPT_end();
@@ -47,5 +47,5 @@ void interfaceDGPT_initialise(void) {
   interfaceDGPT_write(INTERFACEDGPT_ADRMID, 50);
   interfaceDGPT_write(INTERFACEDGPT_ADRTREBLE, 50);
   interfaceDGPT_write(INTERFACEDGPT_ADRVOLUME, 50);
-  //serviceBaseDeTemps_execute[INTERFACEDGPT_PHASE] = interfaceDGPT_gere;
+  serviceBaseDeTemps_execute[INTERFACEDGPT_PHASE] = interfaceDGPT_gere;
 }

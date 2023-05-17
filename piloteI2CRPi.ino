@@ -1,5 +1,5 @@
 //piloteI2CRPi:
-//Historique: 
+//Historique:
 // 2023-05-11 Samuel Hamelin
 
 //INCLUSIONS
@@ -14,7 +14,7 @@
 //pas de fonctions privees
 
 //Definitions de variables privees:
-//pas de variables privees
+TwoWire I2CRPi = TwoWire(1);
 
 //Definitions de fonctions privees:
 //pas de fonctions privees
@@ -26,21 +26,30 @@
 
 //Fonctions publiques:
 
-void piloteI2CRPi_initialise(void)
-{
-  //Wire.begin();
+void piloteI2CRPi_initialise(void) {
+  I2CRPi.begin(PILOTEI2CRPI_SDA, PILOTEI2CRPI_SCL, 100000);
 }
 
-void piloteI2CRPi_read(unsigned char *ucData)
-{
-  /*Wire.requestFrom(0x69, PILOTEI2CRPI_NBBYTEARECEVOIR, 1);
-  for (int i = 0; i < PILOTEI2CRPI_NBBYTEARECEVOIR; i++)
-  {
-    if(Wire.available())
-    {
-      ucData[i] = (unsigned char) (Wire.read()); // receive a byte as character
-    }
-  }*/
+void piloteI2CRPi_beginW(unsigned char ucAdr) {
+  I2CRPi.beginTransmission(ucAdr >> 1);
 }
 
+void piloteI2CRPi_beginR(int Adr) {
+  I2CRPi.requestFrom((Adr >> 1), (int)PILOTEI2CRPI_NBBYTEARECEVOIR);
+}
 
+void piloteI2CRPi_write(unsigned char ucData) {
+  I2CRPi.write(ucData);
+}
+
+void piloteI2CRPi_read(unsigned char *Data) {
+  int i = 0;
+  while(I2CRPi.available()){
+    Data[i] = I2CRPi.read();
+    i++;
+  }
+}
+
+void piloteI2CRPi_end(void) {
+  I2CRPi.endTransmission();
+}

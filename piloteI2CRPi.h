@@ -21,8 +21,12 @@
 
 //Fonctions publiques:
 void piloteI2CRPi_initialise(void);
+void piloteI2CRPi_beginW(unsigned char ucAdr);
+void piloteI2CRPi_beginR(unsigned char ucAdr);
+void piloteI2CRPi_write(unsigned char ucData);
+void piloteI2CRPi_read(unsigned char *Data);
+void piloteI2CRPi_end(void);
 
-void piloteI2CRPi_read(unsigned char *);
 
 //Variables publiques:
 //pas de variables publiques

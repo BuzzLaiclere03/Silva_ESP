@@ -16,23 +16,27 @@
 
 //Definitions de fonctions privees:
 void interfaceRPi_gere(void) {
+
   unsigned char DataRecue[PILOTEI2CRPI_NBBYTEARECEVOIR] = {0};
+
+  piloteI2CRPi_beginR(INTERFACERPI_ADR);
   piloteI2CRPi_read(DataRecue);
 
   unsigned char CheckSum = 0;
-  for (int i = 0; i < 9; i++) {
+  for (int i = 0; i < (PILOTEI2CRPI_NBBYTEARECEVOIR - 1); i++) {
     CheckSum += DataRecue[i];
   }
-  if (CheckSum == DataRecue[9]) {
+
+  if (CheckSum == DataRecue[PILOTEI2CRPI_NBBYTEARECEVOIR - 1]) {
     interfaceRPi.btactions.All = DataRecue[0];
     interfaceRPi.Led_B = DataRecue[1];
     interfaceRPi.Led_W = DataRecue[2];
     interfaceRPi.Led_R = DataRecue[3];
     interfaceRPi.Led_G = DataRecue[4];
-    interfaceRPi.Led_B = DataRecue[5];
-    interfaceRPi.Led_B = DataRecue[6];
-    interfaceRPi.Led_B = DataRecue[7];
-    interfaceRPi.Led_B = DataRecue[8];
+    interfaceRPi.Volume = DataRecue[5];
+    interfaceRPi.Bass = DataRecue[6];
+    interfaceRPi.Mid = DataRecue[7];
+    interfaceRPi.Treble = DataRecue[8];
   }
 }
 
@@ -52,5 +56,5 @@ void interfaceRPi_initialise(void) {
   interfaceRPi.Bass = 0;
   interfaceRPi.Mid = 0;
   interfaceRPi.Treble = 0;
-  //serviceBaseDeTemps_execute[INTERFACERPi_PHASE] = interfaceRPi_gere;
+  serviceBaseDeTemps_execute[INTERFACERPI_PHASE] = interfaceRPi_gere;
 }

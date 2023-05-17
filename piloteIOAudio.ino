@@ -1,10 +1,10 @@
-//piloteIOAudioSelect:
+//piloteIOAudio:
 //Historique: 
 // 2023-05-11 Samuel Hamelin
 
 //INCLUSIONS
 #include "main.h"
-#include "piloteIOAudioSelect.h"
+#include "piloteIOAudio.h"
 
 //Definitions privees
 //pas de d�finitions privees
@@ -22,14 +22,20 @@
 // pas de variables publiques
 
 //Definitions de fonctions publiques:
-void piloteIOAudioSelect_metLaSortieA(unsigned char Valeur)
+void piloteIOAudio_Select(unsigned char Valeur)
 {
   digitalWrite(PILOTEIOAUDIOSELECT_SORTIE, Valeur);
 }
 
-void piloteIOAudioSelect_initialise(void)
+void piloteIOAudio_Mute(unsigned char Valeur)
+{
+  digitalWrite(PILOTEIOAUDIOSELECT_SORTIE, Valeur);
+}
+
+void piloteIOAudio_initialise(void)
 {
   pinMode(PILOTEIOAUDIOSELECT_SORTIE, OUTPUT);
+  pinMode(PILOTEIOAUDIOMUTE_SORTIE, OUTPUT);
 }
 
 

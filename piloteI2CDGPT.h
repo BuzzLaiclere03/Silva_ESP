@@ -20,8 +20,10 @@
 
 //Fonctions publiques:
 void piloteI2CDGPT_initialise(void);
-void piloteI2CDGPT_begin(unsigned char ucAdr);
+void piloteI2CDGPT_beginW(unsigned char ucAdr);
+void piloteI2CDGPT_beginR(unsigned char ucAdr, unsigned char ucNbBytes);
 void piloteI2CDGPT_write(unsigned char ucData);
+unsigned char piloteI2CDGPT_read(void);
 void piloteI2CDGPT_end(void);
 
 //Variables publiques:

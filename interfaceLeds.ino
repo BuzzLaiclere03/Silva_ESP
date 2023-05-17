@@ -40,5 +40,5 @@ void interfaceLeds_initialise(void)
   pilotePWM_metLaSortieA(PILOTEPWM_LEDR, 0);
   pilotePWM_metLaSortieA(PILOTEPWM_LEDW, 0);
   pilotePWM_metLaSortieA(PILOTEPWM_LEDB, 0);
-  //serviceBaseDeTemps_execute[INTERFACELEDS_PHASE] = interfaceLeds_gere;
+  serviceBaseDeTemps_execute[INTERFACELEDS_PHASE] = interfaceLeds_changeetat;
 }

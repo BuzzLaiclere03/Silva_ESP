@@ -1,7 +1,7 @@
-#ifndef INTERFACESOURCE_H
-#define INTERFACESOURCE_H
+#ifndef INTERFACEAUDIO_H
+#define INTERFACEAUDIO_H
 
-//MODULE: interfaceSource
+//MODULE: interfaceAudio
 //DESCRIPTION: pour s'interfacer avec la strip de leds. 
 
 //HISTORIQUE:
@@ -12,9 +12,11 @@
 
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")
-//#define INTERFACESOURCE_PHASE 0
-//#define INTERFACESOURCE_SELECTRPI 0
-//#define INTERFACESOURCE_SELECTESP 1
+//#define INTERFACEAUDIO_PHASE 0
+//#define INTERFACEAUDIO_SELECTRPI 0
+//#define INTERFACEAUDIO_SELECTESP 1
+//#define INTERFACEAUDIO_MUTE 0
+//#define INTERFACEAUDIO_UNMUTE 1
 
 //INFORMATION PUBLIQUE:
 //Definitions publiques:
@@ -22,13 +24,13 @@ typedef struct
 {
   unsigned char etatDuModule;
   unsigned char information;
-} INTERFACESOURCE;
+} INTERFACEAUDIO;
 
 //Fonctions publiques:
-void interfaceSource_gere(void);
-void interfaceSource_initialise(void);
+void interfaceAudio_gere(void);
+void interfaceAudio_initialise(void);
 
 //Variables publiques:
-extern INTERFACESOURCE interfaceSource;
+extern INTERFACEAUDIO interfaceAudio;
 
 #endif

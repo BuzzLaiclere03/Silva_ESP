@@ -1,7 +1,7 @@
-#ifndef PILOTEIOAUDIOSELECT_H
-#define PILOTEIOAUDIOSELECT_H
+#ifndef PILOTEIOAUDIO_H
+#define PILOTEIOAUDIO_H
 
-//MODULE: piloteIOAudioSelect
+//MODULE: piloteIOAudio
 //DESCRIPTION: pour commander la sortie IOAudioSelect
 //HISTORIQUE:
 // 2023-05-11 Samuel Hamelin
@@ -10,6 +10,7 @@
 //Dependances materielles
 //(copiez et adaptez ce qui suit dans "main.h")
 //#define PILOTEIOAUDIOSELECT_SORTIE 16
+//#define PILOTEIOAUDIOMUTE_SORTIE 47
 
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")
@@ -20,8 +21,9 @@
 //pas de definitions publiques
 
 //Fonctions publiques:
-void piloteIOAudioSelect_initialise(void);
-void piloteIOAudioSelect_metLaSortieA(unsigned char Valeur);
+void piloteIOAudio_initialise(void);
+void piloteIOAudio_Mute(unsigned char Valeur);
+void piloteIOAudio_Select(unsigned char Valeur);
 
 //Variables publiques:
 // pas de variables publiques
