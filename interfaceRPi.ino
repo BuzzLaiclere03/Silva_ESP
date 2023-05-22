@@ -38,6 +38,10 @@ void interfaceRPi_gere(void) {
     interfaceRPi.Mid = DataRecue[7];
     interfaceRPi.Treble = DataRecue[8];
   }
+  interfaceRPi.Volume = 10;
+  interfaceRPi.Bass = 230;
+  interfaceRPi.Mid = 20;
+  interfaceRPi.Treble = 255;
 }
 
 //Definitions de variables publiques:

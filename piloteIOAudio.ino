@@ -29,7 +29,7 @@ void piloteIOAudio_Select(unsigned char Valeur)
 
 void piloteIOAudio_Mute(unsigned char Valeur)
 {
-  digitalWrite(PILOTEIOAUDIOSELECT_SORTIE, Valeur);
+  digitalWrite(PILOTEIOAUDIOMUTE_SORTIE, Valeur);
 }
 
 void piloteIOAudio_initialise(void)
