@@ -16,6 +16,7 @@
 #include "interfaceLeds.h"
 #include "interfaceRPi.h"
 #include "interfaceAudio.h"
+#include "interfaceI2S.h"
 
 //Definitions privees
 //pas de definitions privees
@@ -47,6 +48,9 @@ void setup(void) {
   main_initialise();
   serviceTaskServer_DemarreLesTachesALaTouteFinDeSetup();
   //Serial.begin(115200);
+  //interfaceRPi.btactions.bits.Source = 0;
+  //interfaceAudio_gere();
+  //app_main();
 }
 
 
