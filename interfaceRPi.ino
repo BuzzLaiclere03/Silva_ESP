@@ -17,31 +17,71 @@
 //Definitions de fonctions privees:
 void interfaceRPi_gere(void) {
 
-  unsigned char DataRecue[PILOTEI2CRPI_NBBYTEARECEVOIR] = {0};
+  unsigned char DataRecue[PILOTEI2CRPI_NBBYTEARECEVOIR] = { 0 };
+  unsigned char DataVerifie[PILOTEI2CRPI_NBBYTEARECEVOIR] = { 0 };
 
   piloteI2CRPi_beginR(INTERFACERPI_ADR);
   piloteI2CRPi_read(DataRecue);
 
-  unsigned char CheckSum = 0;
+  unsigned int CheckSum = 0;
+  unsigned char Start;
   for (int i = 0; i < (PILOTEI2CRPI_NBBYTEARECEVOIR - 1); i++) {
     CheckSum += DataRecue[i];
+    if (DataRecue[i] == 0x24) {
+      Start = i;
+    }
   }
 
-  if (CheckSum == DataRecue[PILOTEI2CRPI_NBBYTEARECEVOIR - 1]) {
-    interfaceRPi.btactions.All = DataRecue[0];
-    interfaceRPi.Led_B = DataRecue[1];
-    interfaceRPi.Led_W = DataRecue[2];
-    interfaceRPi.Led_R = DataRecue[3];
-    interfaceRPi.Led_G = DataRecue[4];
-    interfaceRPi.Volume = DataRecue[5];
-    interfaceRPi.Bass = DataRecue[6];
-    interfaceRPi.Mid = DataRecue[7];
-    interfaceRPi.Treble = DataRecue[8];
+  CheckSum %= 255;
+
+  unsigned char Check = Start + 9;
+  if (Check >= 10) {
+    Check -= 10;
   }
-  interfaceRPi.Volume = 10;
-  interfaceRPi.Bass = 230;
-  interfaceRPi.Mid = 20;
-  interfaceRPi.Treble = 255;
+
+  if ((CheckSum == DataRecue[Check]) || (CheckSum == DataRecue[Check] + 1)) {
+    int i = Start + 1;
+    interfaceRPi.Led_B = DataRecue[i];
+    i++;
+    if (i >= 10) {
+      i -= 10;
+    }
+    interfaceRPi.Led_W = DataRecue[i];
+    i++;
+    if (i >= 10) {
+      i -= 10;
+    }
+    interfaceRPi.Led_R = DataRecue[i];
+    i++;
+    if (i >= 10) {
+      i -= 10;
+    }
+    interfaceRPi.Led_G = DataRecue[i];
+    i++;
+    if (i >= 10) {
+      i -= 10;
+    }
+    interfaceRPi.Volume = DataRecue[i];
+    i++;
+    if (i >= 10) {
+      i -= 10;
+    }
+    interfaceRPi.Bass = DataRecue[i];
+    i++;
+    if (i >= 10) {
+      i -= 10;
+    }
+    interfaceRPi.Mid = DataRecue[i];
+    i++;
+    if (i >= 10) {
+      i -= 10;
+    }
+    interfaceRPi.Treble = DataRecue[i];
+  }
+  //interfaceRPi.Volume = 10;
+  //interfaceRPi.Bass = 230;
+  //interfaceRPi.Mid = 20;
+  //interfaceRPi.Treble = 255;
 }
 
 //Definitions de variables publiques:
