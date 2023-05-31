@@ -14,7 +14,7 @@
 //pas de fonctions privees
 
 //Definitions de variables privees:
-TwoWire I2CDGPT = TwoWire(0);
+TwoWire I2CDGPT = TwoWire(1);
 
 //Definitions de fonctions privees:
 //pas de fonctions privees

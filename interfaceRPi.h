@@ -21,7 +21,7 @@
 //Dependances logicielles
 //(copiez et adaptez ce qui suit dans "main.h")
 //#define INTERFACERPI_PHASE 0
-//#define INTERFACERPI_ADR 0x69
+//#define INTERFACERPI_ADR 0xD2
 
 //INFORMATION PUBLIQUE:
 //Definitions publiques:

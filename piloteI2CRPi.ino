@@ -14,7 +14,7 @@
 //pas de fonctions privees
 
 //Definitions de variables privees:
-TwoWire I2CRPi = TwoWire(1);
+TwoWire I2CRPi = TwoWire(0);
 
 //Definitions de fonctions privees:
 //pas de fonctions privees
