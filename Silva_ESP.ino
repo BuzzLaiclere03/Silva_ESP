@@ -58,6 +58,12 @@ void loop(void) {
 
   serviceTaskServer_gestion.execute();
   serviceBaseDeTemps_gereDansLoop();
+
+  //interfaceRPi_gere();
+  //interfaceDGPT_gere();
+  //interfaceLeds_changeetat();
+  //interfaceAudio_gere();
+  //delay(100);
 }
 
 //Definitions de variables publiques:

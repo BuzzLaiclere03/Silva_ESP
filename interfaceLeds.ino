@@ -30,10 +30,20 @@ void interfaceLeds_changeetat(void)
   pilotePWM_metLaSortieA(PILOTEPWM_LEDR, interfaceRPi.Led_R);
   pilotePWM_metLaSortieA(PILOTEPWM_LEDW, interfaceRPi.Led_W);
   pilotePWM_metLaSortieA(PILOTEPWM_LEDB, interfaceRPi.Led_B);
+  
+  Serial.print(interfaceRPi.Led_G);
+  Serial.print(" - ");
+  Serial.print(interfaceRPi.Led_R);
+  Serial.print(" - ");
+  Serial.print(interfaceRPi.Led_W);
+  Serial.print(" - ");
+  Serial.print(interfaceRPi.Led_B);
+  Serial.print("\n");
 }
 
 void interfaceLeds_initialise(void)
 {
+  Serial.begin(115200);
   interfaceLeds.etatDuModule = MODULE_PAS_EN_FONCTION;
   interfaceLeds.information = INFORMATION_TRAITEE;
   pilotePWM_metLaSortieA(PILOTEPWM_LEDG, 0);

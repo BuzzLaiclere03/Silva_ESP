@@ -25,19 +25,27 @@ void interfaceRPi_gere(void) {
 
   unsigned int CheckSum = 0;
   unsigned char Start;
-  for (int i = 0; i < (PILOTEI2CRPI_NBBYTEARECEVOIR - 1); i++) {
+  for (int i = 0; i < (PILOTEI2CRPI_NBBYTEARECEVOIR); i++) {
     CheckSum += DataRecue[i];
     if (DataRecue[i] == 0x24) {
       Start = i;
     }
+    Serial.print(DataRecue[i]);
+    Serial.print(" - ");
   }
-
-  CheckSum %= 255;
 
   unsigned char Check = Start + 9;
   if (Check >= 10) {
     Check -= 10;
   }
+
+  CheckSum = CheckSum - DataRecue[Check];
+
+  CheckSum = CheckSum % 255;
+
+  Serial.print(" - - - - ");
+  Serial.print(CheckSum);
+  Serial.print("\n");
 
   if ((CheckSum == DataRecue[Check]) || (CheckSum == DataRecue[Check] + 1)) {
     int i = Start + 1;
