@@ -31,9 +31,9 @@ void interfaceDGPT_write(unsigned int Adr, unsigned char Valeur) {
 }
 
 void interfaceDGPT_gere(void) {
-  interfaceDGPT_write(INTERFACEDGPT_ADRBASS, interfaceRPi.Bass);
+  interfaceDGPT_write(INTERFACEDGPT_ADRBASS, 255 - interfaceRPi.Bass);
   interfaceDGPT_write(INTERFACEDGPT_ADRMID, interfaceRPi.Mid);
-  interfaceDGPT_write(INTERFACEDGPT_ADRTREBLE, interfaceRPi.Treble);
+  interfaceDGPT_write(INTERFACEDGPT_ADRTREBLE, 255 - interfaceRPi.Treble);
   interfaceDGPT_write(INTERFACEDGPT_ADRVOLUME, interfaceRPi.Volume);
 }
 //Definitions de variables publiques:
