@@ -27,7 +27,7 @@ TwoWire I2CDGPT = TwoWire(1);
 //Fonctions publiques:
 
 void piloteI2CDGPT_initialise(void) {
-  I2CDGPT.begin(PILOTEI2CDGPT_SDA, PILOTEI2CDGPT_SCL, 100000);
+  I2CDGPT.begin(PILOTEI2CDGPT_SDA, PILOTEI2CDGPT_SCL, 400000);
 }
 
 void piloteI2CDGPT_beginW(unsigned char ucAdr) {

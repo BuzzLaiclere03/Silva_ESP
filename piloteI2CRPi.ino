@@ -27,7 +27,7 @@ TwoWire I2CRPi = TwoWire(0);
 //Fonctions publiques:
 
 void piloteI2CRPi_initialise(void) {
-  I2CRPi.begin(PILOTEI2CRPI_SDA, PILOTEI2CRPI_SCL, 100000);
+  I2CRPi.begin(PILOTEI2CRPI_SDA, PILOTEI2CRPI_SCL, 400000);
 }
 
 void piloteI2CRPi_beginW(unsigned char ucAdr) {
