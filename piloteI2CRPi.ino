@@ -25,7 +25,7 @@ TwoWire I2CRPi = TwoWire(0);
 // pas de definitions publiques
 
 //Fonctions publiques:
-
+/*
 void piloteI2CRPi_initialise(void) {
   I2CRPi.begin(PILOTEI2CRPI_SDA, PILOTEI2CRPI_SCL, 400000);
 }
@@ -45,6 +45,34 @@ void piloteI2CRPi_write(unsigned char ucData) {
 void piloteI2CRPi_read(unsigned char *Data) {
   int i = 0;
   while(I2CRPi.available()){
+    Data[i] = I2CRPi.read();
+    i++;
+  }
+}
+
+void piloteI2CRPi_end(void) {
+  I2CRPi.endTransmission();
+}*/
+
+void piloteI2CRPi_initialise(void) {
+  I2CRPi.begin(PILOTEI2CRPI_SDA, PILOTEI2CRPI_SCL, 0x69);
+}
+
+void piloteI2CRPi_beginW(unsigned char ucAdr) {
+  I2CRPi.beginTransmission(ucAdr >> 1);
+}
+
+void piloteI2CRPi_beginR(int Adr) {
+  I2CRPi.requestFrom((Adr >> 1), (int)PILOTEI2CRPI_NBBYTEARECEVOIR);
+}
+
+void piloteI2CRPi_write(unsigned char ucData) {
+  I2CRPi.write(ucData);
+}
+
+void piloteI2CRPi_read(unsigned char *Data) {
+  int i = 0;
+  while(1 < I2CRPi.available()){
     Data[i] = I2CRPi.read();
     i++;
   }

@@ -30,7 +30,7 @@ void interfaceLeds_changeetat(void)
   pilotePWM_metLaSortieA(PILOTEPWM_LEDR, interfaceRPi.Led_R);
   pilotePWM_metLaSortieA(PILOTEPWM_LEDW, interfaceRPi.Led_W);
   pilotePWM_metLaSortieA(PILOTEPWM_LEDB, interfaceRPi.Led_B);
-  
+  /*
   Serial.print(interfaceRPi.Led_G);
   Serial.print(" - ");
   Serial.print(interfaceRPi.Led_R);
@@ -39,6 +39,7 @@ void interfaceLeds_changeetat(void)
   Serial.print(" - ");
   Serial.print(interfaceRPi.Led_B);
   Serial.print("\n");
+  */
 }
 
 void interfaceLeds_initialise(void)

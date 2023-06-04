@@ -15,12 +15,12 @@
 //Definitions de variables privees:
 
 //Definitions de fonctions privees:
-void interfaceRPi_gere(void) {
+void interfaceRPi_gere(unsigned char howMany) {
 
   unsigned char DataRecue[PILOTEI2CRPI_NBBYTEARECEVOIR] = { 0 };
   unsigned char DataVerifie[PILOTEI2CRPI_NBBYTEARECEVOIR] = { 0 };
 
-  piloteI2CRPi_beginR(INTERFACERPI_ADR);
+  //piloteI2CRPi_beginR(INTERFACERPI_ADR);
   piloteI2CRPi_read(DataRecue);
 
   unsigned int CheckSum = 0;
@@ -108,5 +108,6 @@ void interfaceRPi_initialise(void) {
   interfaceRPi.Bass = 0;
   interfaceRPi.Mid = 0;
   interfaceRPi.Treble = 0;
-  serviceBaseDeTemps_execute[INTERFACERPI_PHASE] = interfaceRPi_gere;
+  I2CRPi.onReceive(interfaceRPi_gere);
+  //serviceBaseDeTemps_execute[INTERFACERPI_PHASE] = interfaceRPi_gere;
 }

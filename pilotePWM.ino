@@ -25,10 +25,11 @@ Pwm pwm = Pwm();
 //Definitions de fonctions publiques:
 void pilotePWM_metLaSortieA(unsigned char Pin, unsigned char Valeur)
 {
-  Serial.print(pwm.write(Pin, Valeur & 15));
-  Serial.print(" - ");
-  Serial.print(Valeur);
-  Serial.print("\n");
+  pwm.write(Pin, Valeur & 15);
+  //Serial.print(pwm.write(Pin, Valeur & 15));
+  //Serial.print(" - ");
+  //Serial.print(Valeur);
+  //Serial.print("\n");
 }
 
 void pilotePWM_initialise(void)

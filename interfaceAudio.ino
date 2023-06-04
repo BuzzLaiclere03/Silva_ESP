@@ -28,11 +28,18 @@ void interfaceAudio_gere(void) {
 
   piloteIOAudio_Select(interfaceRPi.btactions.bits.Source);
 
+  Serial.print(interfaceRPi.Volume);
+  Serial.print("\n");
+
   if (interfaceRPi.Volume == 0) {
     piloteIOAudio_Mute(INTERFACEAUDIO_MUTE);
+    Serial.print("Muted");
+    Serial.print("\n");
     
   } else {
     piloteIOAudio_Mute(INTERFACEAUDIO_UNMUTE);
+    Serial.print("Unmuted");
+    Serial.print("\n");
   }
 }
 
