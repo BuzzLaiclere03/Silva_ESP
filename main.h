@@ -35,7 +35,7 @@
 #define INTERFACEAUDIO_MUTE 0
 #define INTERFACEAUDIO_UNMUTE 1
 
-#define INTERFACERPI_ADR 0xD2
+#define INTERFACERPI_ADR 0x62
 
 //D�pendances logicielles:
 

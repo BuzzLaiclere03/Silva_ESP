@@ -104,10 +104,10 @@ void interfaceRPi_initialise(void) {
   interfaceRPi.Led_W = 0;
   interfaceRPi.Led_R = 0;
   interfaceRPi.Led_G = 0;
-  interfaceRPi.Volume = 0;
-  interfaceRPi.Bass = 0;
-  interfaceRPi.Mid = 0;
-  interfaceRPi.Treble = 0;
+  interfaceRPi.Volume = 10;
+  interfaceRPi.Bass = 230;
+  interfaceRPi.Mid = 20;
+  interfaceRPi.Treble = 255;
   //I2CRPi.onReceive(interfaceRPi_gere);
   //serviceBaseDeTemps_execute[INTERFACERPI_PHASE] = interfaceRPi_gere;
 }
