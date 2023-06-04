@@ -57,7 +57,7 @@ typedef struct
 
 //Fonctions publiques:
 void interfaceRPi_initialise(void);
-void interfaceRPi_gere(void);
+void interfaceRPi_gere(int);
 
 //Variables publiques:
 extern INTERFACERPI interfaceRPi;

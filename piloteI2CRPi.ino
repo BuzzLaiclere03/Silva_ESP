@@ -5,6 +5,7 @@
 //INCLUSIONS
 #include "main.h"
 #include "piloteI2CRPi.h"
+#include "interfaceRPi.h"
 #include <Wire.h>
 
 //Definitions privees
@@ -56,6 +57,7 @@ void piloteI2CRPi_end(void) {
 
 void piloteI2CRPi_initialise(void) {
   I2CRPi.begin(PILOTEI2CRPI_SDA, PILOTEI2CRPI_SCL, 0x69);
+  I2CRPi.onReceive(interfaceRPi_gere);
 }
 
 void piloteI2CRPi_beginW(unsigned char ucAdr) {

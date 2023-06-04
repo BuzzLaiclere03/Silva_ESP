@@ -30,5 +30,4 @@ void piloteI2CRPi_end(void);
 
 //Variables publiques:
 //pas de variables publiques
-
 #endif

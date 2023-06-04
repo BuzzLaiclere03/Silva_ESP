@@ -15,7 +15,7 @@
 //Definitions de variables privees:
 
 //Definitions de fonctions privees:
-void interfaceRPi_gere(unsigned char howMany) {
+void interfaceRPi_gere(int howMany) {
 
   unsigned char DataRecue[PILOTEI2CRPI_NBBYTEARECEVOIR] = { 0 };
   unsigned char DataVerifie[PILOTEI2CRPI_NBBYTEARECEVOIR] = { 0 };
@@ -108,6 +108,6 @@ void interfaceRPi_initialise(void) {
   interfaceRPi.Bass = 0;
   interfaceRPi.Mid = 0;
   interfaceRPi.Treble = 0;
-  I2CRPi.onReceive(interfaceRPi_gere);
+  //I2CRPi.onReceive(interfaceRPi_gere);
   //serviceBaseDeTemps_execute[INTERFACERPI_PHASE] = interfaceRPi_gere;
 }
